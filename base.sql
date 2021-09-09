@@ -1,3 +1,7 @@
+drop table if exists escuela;
+create table escuela;
+use escuela;
+
 create table carrera(){
     idca integer primary key not null,
     nombre varchar(50), 
@@ -27,6 +31,12 @@ create table alumnos(){
     nombre varchar(50) not null,
     foreign key (idca) references carrera(idca)
 };
+
+/*Insercion de carreras*/
+insert into carrera values(1,'Arquitectura'),(2,'Contador Público'),(3,'Ing. Electromecánica'),
+(4,'Ing. en Animación Digital y Efectos Visuales'),(5,'Ing. en Gestión Empresarial'),(6,'Ing. en Materiales'),
+(7,'Ing. en Sistemas Computacionales','I'),(8,'Ing. Industrial'),(9,'Ing. Mecatrónica'),(10,'Ing. Química'),
+(11,'Licenciatura en Turismo'),(12,'Ing. en Logística');
 
 insert into carrera values(1,'sistemas','f');
 
