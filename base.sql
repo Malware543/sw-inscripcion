@@ -1,4 +1,3 @@
-
 create table carrera(){
     idca integer primary key not null,
     nombre varchar(50), 
@@ -21,6 +20,13 @@ create table maestros(
     foreign key(idma) references materias(idma)
 );
 
+/*agregado de tabla alumno*/
+create table alumnos(){
+    idal integer primary key not null,
+    idca integer primary key not null,
+    nombre varchar(50) not null,
+    foreign key (idca) references carrera(idca)
+};
 
 insert into carrera values(1,'sistemas','f');
 
