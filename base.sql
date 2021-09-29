@@ -26,7 +26,7 @@ create table maestros(
 
 /*agregado de tabla alumno*/
 create table alumnos(
-    idal integer primary key not null,
+    idal integer auto_increment primary key not null,
     idca integer not null,
     nombre varchar(50) not null,
     semestre varchar(50) not null,
@@ -71,12 +71,12 @@ insert into materias values(0,1,"Fundamentos teoricos del diseño II",4,"Segundo
 (0,1,"Analisis Critico de la Arquitectura y el arte II",4,"Segundo"),
 (0,1,"Taller de Lenguaje Arquitectonico I",6,"Segundo");
 /*tercer semestre*/
-insert into materias values(0,1,"Taller de Diseño I",6,"Tercer"),
-(0,1,"Propiedades y Comportamiento de los Materiales",4,"Tercer"),
-(0,1,"Estructuras I",4,"Tercer"),
-(0,1,"Topografia",4,"Tercer"),
-(0,1,"Analisis Critico de la Arquitectura y el Arte III",4,"Tercer"),
-(0,1,"Taller de Lenguaje Arquitectonico II",6,"Tercer");
+insert into materias values(0,1,"Taller de Diseño I",6,"Tercero"),
+(0,1,"Propiedades y Comportamiento de los Materiales",4,"Tercero"),
+(0,1,"Estructuras I",4,"Tercero"),
+(0,1,"Topografia",4,"Tercero"),
+(0,1,"Analisis Critico de la Arquitectura y el Arte III",4,"Tercero"),
+(0,1,"Taller de Lenguaje Arquitectonico II",6,"Tercero");
 /*cuarto semestre*/
 insert into materias values(0,1,"Taller de Diseño II",8,"Cuarto"),
 (0,1,"Taller de Construccion I",6,"Cuarto"),
@@ -302,7 +302,8 @@ insert into materias values(0,4,"Narrativa Publicitaria",5,"Octavo"),
 (0,4,"Efectos Visuales",5,"Octavo");
 /*noveno semestre*/
 insert into materias values(0,4,"Residencia Profesional",10,"Noveno");
-/*Insercion de materias, Electromecanica*/
+
+/*Insercion de materias, gestion*/
 /*Primer semstre*/
 insert into materias values(0,5,"Fundamentos de Investigacion",4,"Primero"),
 (0,5,"Calculo Diferencial",5,"Primero"),
@@ -362,6 +363,7 @@ insert into materias values(0,5,"Cadena de Suministros",5,"Octavo"),
 (0,5,"Simualcion de Procesos Industriales",5,"Octavo");
 /*Decimo semstre*/
 insert into materias values(0,5,"Rsidencia Profecional",10,"Decimo");
+
 /*Insercion de materias, industrial*/
 /*Primero semestre*/
 insert into materias values(0,8,"Fundamentos de Investigacion",4,"Primero"),

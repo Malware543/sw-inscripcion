@@ -1,7 +1,31 @@
+<?php
+include "conexion";
+$materias = "SELECT * FROM materias";
+echo $conectar;
+?>
+
 <!DOCTYPE html>
 <head>
     <title>Tesjo</title>
+    <!-- enlazamos el documento js-->
+    <script src="funciones.js"></script>
+    <!--enlazamos el documento css-->
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
     <h1>Registro de alumnos</h1>
+    <div id="container">
+        <fieldset>
+            <legend>Ingrese los datos del alumno</legend>
+            Id de l a carrera:<input type="text" id="idCarrera"><br><br>
+            Nombre:<input type="text" id="Nombre"><br><br>
+            Semestre:<input type="text" id="Semestre"><br><br>
+            Salon:<input type="text" id="Salon"><br><br>
+            <input type="button" id="enviar" value="Enviar"><br><br>
+        </fieldset>
+        <?php $resultado = mysqli_query($conectar, $materias); 
+            $row=mysqli_fetch_assoc($resultado);
+        ?>
+            <p><?php echo row["nombre"] echo $conectar;?></p>
+    </div>
 </body>

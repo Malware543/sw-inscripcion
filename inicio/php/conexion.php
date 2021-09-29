@@ -3,10 +3,10 @@
     require ('fpdf.php');
 
     //variables para la conexion
-    $host = "";
-    $database = "";
-    $user = "";
-    $contra = "";
+    $host = "localhost";
+    $database = "escuela";
+    $user = "root";
+    $contra = "root";
 
     $conectar = mysqli_connect($host,$user,$contra,$database);
 
@@ -15,6 +15,7 @@
     }
 
     echo "Conexion exitosa";
+    echo "Hola";
     mysqli_close($conectar);
 
     $pdf=new FPDF();
