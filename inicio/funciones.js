@@ -9,6 +9,6 @@ function obtenerDatosAl() {
     var semestre = document.getElementById("Semestre").value;
     var salon = document.getElementById("Salon").value;
     //validamos el campo id solo se pueden ingregar datos de tipo int
-    
     alert("id:"+id+" nombre:"+nombre+" semestre:"+semestre+" salon:"+salon)
+    console.log("el marcos es gay");
 }

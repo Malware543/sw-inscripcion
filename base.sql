@@ -4,14 +4,14 @@ use escuela;
 
 create table carrera(
     idca integer primary key not null,
-    nombre varchar(50) not null,
+    nombre varchar(60) not null,
     codigo varchar(15)not null 
 );
 
 create table materias(
     idma integer auto_increment primary key not null,
     idca integer not null,
-    nombre varchar(50) not null,
+    nombre varchar(90) not null,
     creditos integer not null,
     semestre varchar(20) not null, 
     foreign key (idca) references carrera(idca)
@@ -29,8 +29,11 @@ create table alumnos(
     idal integer auto_increment primary key not null,
     idca integer not null,
     nombre varchar(50) not null,
+    ape_pat varchar(50) not null,
+    ape_mat varchar(50) not null, 
     semestre varchar(50) not null,
     salon varchar(20) not null,
+    turno varchar(30) not null,
     foreign key (idca) references carrera(idca)
 );
 
@@ -216,7 +219,7 @@ insert into materias values(0,3,"Diseño de Elementos de Maquina",5,"Quinto"),
 (0,3,"Sistemas y Maquinas de Fluido",6,"Quinto"),
 (0,3,"Electronica Digital",4,"Quinto");
 /*sexto semestre*/
-insert into materias values(0,3,"MAquinas y Equipos Termicos I",4,"Sexto"),
+insert into materias values(0,3,"Maquinas y Equipos Termicos I",4,"Sexto"),
 (0,3,"Ahorro de Energia",6,"Sexto"),
 (0,3,"Instalaciones Electricas",5,"Sexto"),
 (0,3,"Maquinas Electricas",6,"Sexto"),

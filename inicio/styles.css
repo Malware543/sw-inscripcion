@@ -1,5 +1,7 @@
 body{
     background-color:darkgray;
+    background-image: url(b.jpeg);
+    background-size: cover;
 }
 h1{
     font-family: Georgia, 'Times New Roman', Times, serif;
