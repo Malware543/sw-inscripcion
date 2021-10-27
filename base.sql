@@ -774,7 +774,6 @@ insert into materias values(0, 11, 'Calidad del Servicio al Cliente', 5, 'Octavo
 insert into materias values(0, 11, 'RESIDENCIA PROFESIONAL', 10, 'Noveno' ),
 (0, 11, 'Especialidad', 35, 'Noveno' );
 
-12.GRUPO: IJ-0101:Ing. en Logística
 /*Insercion de materias, Ing. en Logistica*/
 /*primer semestre*/
 insert into materias values(0, 12, 'Introduccion a la Ingenieria en Logistica', 4, 'Primero' ),
