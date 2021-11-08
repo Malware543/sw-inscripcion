@@ -789,7 +789,6 @@ insert into materias values(0, 11, "Calidad del Servicio al Cliente", 5, "Octavo
 insert into materias values(0, 11, "RESIDENCIA PROFESIONAL", 10, "Noveno" ),
 (0, 11, "Especialidad", 35, "Noveno" );
 
-12.GRUPO: IJ-0101:Ing. en Logística
 /*Insercion de materias, Ing. en Logistica*/
 /*primer semestre*/
 insert into materias values(0, 12, "Introduccion a la Ingenieria en Logistica", 4, "Primero" ),
@@ -854,6 +853,12 @@ insert into materias values(0, 12, "Innovacion", 5, "Octavo" ),
 (0, 12, "Geografia para el Transporte", 5, "Octavo" );
 
 /*noveno semestre*/
+<<<<<<< HEAD
 insert into materias values(0, 12, "RESIDENCIA PROFESIONAL", 10, "Noveno" ),
 (0, 12, "ESPECIALIDAD", 28, "Noveno" ),
 (0, 12, "Gestion de Proyectos", 4, "Noveno" );
+=======
+insert into materias values(0, 12, 'RESIDENCIA PROFESIONAL', 10, 'Noveno' ),
+(0, 12, 'ESPECIALIDAD', 28, 'Noveno' ),
+(0, 12, 'Gestion de Proyectos', 4, 'Noveno' );
+>>>>>>> d617a9f87c4639c52dbd4d9157994d99e540054a
