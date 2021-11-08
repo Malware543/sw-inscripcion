@@ -32,9 +32,24 @@ create table alumnos(
     ape_pat varchar(50) not null,
     ape_mat varchar(50) not null, 
     semestre varchar(50) not null,
-    salon varchar(20) not null,
+    salon int not null,
     turno varchar(30) not null,
-    foreign key (idca) references carrera(idca)
+    foreign key (idca) references carrera(idca),
+    foreign key (salon) references edificio(id_edif)
+);
+
+create table usarios(
+    clave int primary key,
+    correo varchar(50),
+    nombre varchar(50),
+    pass varchar(50);
+);
+
+create table edificio(
+    id_edif int primary key,
+    salon varchar(30),
+    nombre varchar(30),
+    letra varchar(5)
 );
 
 /*
@@ -53,14 +68,14 @@ create table alumnos(
 */
 
 /*Insercion de carreras*/
-insert into carrera values(1,'Arquitectura','LZ'),(2,'Contador Público','LN'),(3,'Ing. Electromecánica','IT'),
-(4,'Ing. en Animación Digital y Efectos Visuales','IA'),(5,'Ing. en Gestión Empresarial','IB'),(6,'Ing. en Materiales','IH'),
-(7,'Ing. en Sistemas Computacionales','IC'),(8,'Ing. Industrial','ID'),(9,'Ing. Mecatrónica','IM'),(10,'Ing. Química','IF'),
-(11,'Licenciatura en Turismo','LO'),(12,'Ing. en Logística','IJ');
+insert into carrera values(1,"Arquitectura","LZ"),(2,"Contador Público","LN"),(3,"Ing. Electromecánica","IT"),
+(4,"Ing. en Animación Digital y Efectos Visuales","IA"),(5,"Ing. en Gestión Empresarial","IB"),(6,"Ing. en Materiales","IH"),
+(7,"Ing. en Sistemas Computacionales","IC"),(8,"Ing. Industrial","ID"),(9,"Ing. Mecatrónica","IM"),(10,"Ing. Química","IF"),
+(11,"Licenciatura en Turismo","LO"),(12,"Ing. en Logística","IJ");
 
 /*Insercion de materias, arquitectura*/
 /*primer semestre*/
-insert into materias values(0,1,'Fundamentos Teoricos del Diseño I',4,'Primero'),
+insert into materias values(0,1,"Fundamentos Teoricos del Diseño I",4,"Primero"),
 (0,1,"Fundamentos de Investigacion",4,"Primero"),
 (0,1,"Analisis Porcentual",4,"Primero"),
 (0,1,"Geometria Descriptiva I",4,"Primero"),
@@ -369,145 +384,145 @@ insert into materias values(0,5,"Rsidencia Profecional",10,"Decimo");
 
 /*Insercion de materias, Ing. en Materiales*/
 /*primer semestre*/
-insert into materias values(0, 6, 'Fundamento de investigacion', 4, 'Primero'),
-(0, 6, 'Taller de Etica', 4, 'Primero'),
-(0, 6, 'Calculo Diferencial', 5, 'Primero'),
-(0, 6, 'Quimica', 5, 'Primero' ),
-(0, 6, 'Dibujo Asistido por Computadora', 4, 'Primero' ),
-(0, 6, 'Fundamentos de Administracion', 4, 'Primero' );
+insert into materias values(0, 6, "Fundamento de investigacion", 4, "Primero"),
+(0, 6, "Taller de Etica", 4, "Primero"),
+(0, 6, "Calculo Diferencial", 5, "Primero"),
+(0, 6, "Quimica", 5, "Primero" ),
+(0, 6, "Dibujo Asistido por Computadora", 4, "Primero" ),
+(0, 6, "Fundamentos de Administracion", 4, "Primero" );
 
 
 /*segundo semestre*/
-insert into materias values(0, 6, 'Probabilidad y Estadistica', 5, 'Segundo' ),
-(0, 6, 'Metrologia y Normalizacion', 4, 'Segundo' ),
-(0, 6, 'Calculo Integral', 5, 'Segundo' ),
-(0, 6, 'Algebra Lineal', 5, 'Segundo' ),
-(0, 6, 'Taller de seguridad e Higiene', 3, 'Segundo' ),
-(0, 6, 'Mecanica Clasica', 5, 'Segundo' );
+insert into materias values(0, 6, "Probabilidad y Estadistica", 5, "Segundo" ),
+(0, 6, "Metrologia y Normalizacion", 4, "Segundo" ),
+(0, 6, "Calculo Integral", 5, "Segundo" ),
+(0, 6, "Algebra Lineal", 5, "Segundo" ),
+(0, 6, "Taller de seguridad e Higiene", 3, "Segundo" ),
+(0, 6, "Mecanica Clasica", 5, "Segundo" );
 
 /*tercer semestre*/
-insert into materias values(0, 6, 'Electricidad, Magnetismo y Optica', 4, 'Tercero' ),
-(0, 6, 'Mineralogia y Obtencion de materiales', 6, 'Tercero' ),
-(0, 6, 'Calculo Vectorial', 5, 'Tercero' ),
-(0, 6, 'Ecuaciones Diferenciales', 5, 'Tercero' ),
-(0, 6, 'Quimica Organica', 4, 'Tercero' ),
-(0, 6, 'Comportamiento Mecanico de Materiales', 6, 'Tercero' );
+insert into materias values(0, 6, "Electricidad, Magnetismo y Optica", 4, "Tercero" ),
+(0, 6, "Mineralogia y Obtencion de materiales", 6, "Tercero" ),
+(0, 6, "Calculo Vectorial", 5, "Tercero" ),
+(0, 6, "Ecuaciones Diferenciales", 5, "Tercero" ),
+(0, 6, "Quimica Organica", 4, "Tercero" ),
+(0, 6, "Comportamiento Mecanico de Materiales", 6, "Tercero" );
 
 /*cuarto semestre*/
-insert into materias values(0, 6, 'Caracterizacion Estructural', 4, 'Cuarto' ),
-(0, 6, 'Fisica del Estado Solido', 6, 'Cuarto' ),
-(0, 6, 'Programacion de Metodos Numericos', 5, 'Cuarto' ),
-(0, 6, 'Termodinamica para Ingenieria en Materiales', 5, 'Cuarto' ),
-(0, 6, 'Materiales Polimericos', 6, 'Cuarto' ),
-(0, 6, 'Analisis de Fallas Mecanicas', 5, 'Cuarto' );
+insert into materias values(0, 6, "Caracterizacion Estructural", 4, "Cuarto" ),
+(0, 6, "Fisica del Estado Solido", 6, "Cuarto" ),
+(0, 6, "Programacion de Metodos Numericos", 5, "Cuarto" ),
+(0, 6, "Termodinamica para Ingenieria en Materiales", 5, "Cuarto" ),
+(0, 6, "Materiales Polimericos", 6, "Cuarto" ),
+(0, 6, "Analisis de Fallas Mecanicas", 5, "Cuarto" );
 
 /*quinto semestre*/
-insert into materias values(0, 6, 'Tecnicas de Analisis', 5, 'Quinto' ),
-(0, 6, 'Diagramas de Equilibrio', 4, 'Quinto' ),
-(0, 6, 'Produccion de Metales no Ferroso', 5, 'Quinto' ),
-(0, 6, 'Equilibrio Fisico-Quimico', 4, 'Quinto' ),
-(0, 6, 'Fenomenos de Transporte', 5, 'Quinto' ),
-(0, 6, 'Desarrollo Sustentable', 5, 'Quinto' );
+insert into materias values(0, 6, "Tecnicas de Analisis", 5, "Quinto" ),
+(0, 6, "Diagramas de Equilibrio", 4, "Quinto" ),
+(0, 6, "Produccion de Metales no Ferroso", 5, "Quinto" ),
+(0, 6, "Equilibrio Fisico-Quimico", 4, "Quinto" ),
+(0, 6, "Fenomenos de Transporte", 5, "Quinto" ),
+(0, 6, "Desarrollo Sustentable", 5, "Quinto" );
 
 /*sexto semestre*/
-insert into materias values(0, 6, 'Taller de Investigacio I', 4, 'Sexto' ),
-(0, 6, 'Solidificacion', 4, 'Sexto' ),
-(0, 6, 'Produccion de Materiales Ferrosos', 4, 'Sexto' ),
-(0, 6, 'Cinetica', 4, 'Sexto' ),
-(0, 6, 'Transiciones de Fases', 4, 'Sexto' ),
-(0, 6, 'Corrosion y Degradacion', 5, 'Sexto' );
+insert into materias values(0, 6, "Taller de Investigacio I", 4, "Sexto" ),
+(0, 6, "Solidificacion", 4, "Sexto" ),
+(0, 6, "Produccion de Materiales Ferrosos", 4, "Sexto" ),
+(0, 6, "Cinetica", 4, "Sexto" ),
+(0, 6, "Transiciones de Fases", 4, "Sexto" ),
+(0, 6, "Corrosion y Degradacion", 5, "Sexto" );
 
 /*septimo semestre*/
-insert into materias values(0, 6, 'Taller de Investifacion II', 4, 'Septimo' ),
-(0, 6, 'Tratamiento Termicos', 4, 'Septimo' )
-(0, 6, 'Procesos de Manufactura', 5, 'Septimo' )
-,(0, 6, 'Materiales Ceramicos', 6, 'Septimo' ),
-(0, 6, 'Calidad', 4, 'Septimo' ),
-(0, 6, 'Introduccion a los Nanomateriales', 4, 'Septimo' ),
-(0, 6, 'Propiedades Fisicas y Mecanicas de los Materiales Funcionalizados', 6, 'Septimo' );
+insert into materias values(0, 6, "Taller de Investifacion II", 4, "Septimo" ),
+(0, 6, "Tratamiento Termicos", 4, "Septimo" ),
+(0, 6, "Procesos de Manufactura", 5, "Septimo" ),
+(0, 6, "Materiales Ceramicos", 6, "Septimo" ),
+(0, 6, "Calidad", 4, "Septimo" ),
+(0, 6, "Introduccion a los Nanomateriales", 4, "Septimo" ),
+(0, 6, "Propiedades Fisicas y Mecanicas de los Materiales Funcionalizados", 6, "Septimo" );
 
 /*octavo semestre*/
-insert into materias values(0, 6, 'Formulacion y Evaluacion de Proyectos', 5, 'Octavo' ),
-(0, 6, 'Materiales Compuestos', 6, 'Octavo' ),
-(0, 6, 'Introduccion a los Biomateriales', 4, 'Octavo' ),
-(0, 6, 'Caracterizacion de Materiales Funcionalizados', 6, 'Octavo' ),
-(0, 6, 'Procesos de Fabricacion de Materiales Funcionalizados', 6, 'Octavo' ),
-(0, 6, 'Innovacion Tecnologia con Materiales Funcionalizados', 7, 'Octavo' );
+insert into materias values(0, 6, "Formulacion y Evaluacion de Proyectos", 5, "Octavo" ),
+(0, 6, "Materiales Compuestos", 6, "Octavo" ),
+(0, 6, "Introduccion a los Biomateriales", 4, "Octavo" ),
+(0, 6, "Caracterizacion de Materiales Funcionalizados", 6, "Octavo" ),
+(0, 6, "Procesos de Fabricacion de Materiales Funcionalizados", 6, "Octavo" ),
+(0, 6, "Innovacion Tecnologia con Materiales Funcionalizados", 7, "Octavo" );
 
 /*noveno semestre*/
-(0, 6, 'RESIDENCIA PROFESIONAL', 4, 'Noveno' );
+(0, 6, "RESIDENCIA PROFESIONAL", 4, "Noveno" );
 
 /*Insercion de materias, Ing. en Sistemas*/
 /*primero semestre*/
-insert into materias values(0, 7, 'Calculo Diferencial', 5, 'Primero' ),
-(0, 7, 'Fundamentos de Programacion', 5, 'Primero' ),
-(0, 7, 'Taller de Etica', 4, 'Primero' ),
-(0, 7, 'Matematica Discretas', 5, 'Primero' ),
-(0, 7, 'Taller de Admistracion', 4, 'Primero' ),
-(0, 7, 'Fundamentos de Investigacion', 4, 'Primero' );
+insert into materias values(0, 7, "Calculo Diferencial", 5, "Primero" ),
+(0, 7, "Fundamentos de Programacion", 5, "Primero" ),
+(0, 7, "Taller de Etica", 4, "Primero" ),
+(0, 7, "Matematica Discretas", 5, "Primero" ),
+(0, 7, "Taller de Admistracion", 4, "Primero" ),
+(0, 7, "Fundamentos de Investigacion", 4, "Primero" );
 
 /*segundo semestre*/
-insert into materias values(0, 7, 'Calculo Integral', 5, 'Segundo' ),
-(0, 7, 'Programacion Orientada a Objetos', 5, 'Segundo' ),
-(0, 7, 'Contabilidad Financiera', 4, 'Segundo' ),
-(0, 7, 'Quimica', 4, 'Segundo' ),
-(0, 7, 'Algebra Lineal', 5, 'Segundo' ),
-(0, 7, 'Probabilidad y Estadistica', 5, 'Segundo' );
+insert into materias values(0, 7, "Calculo Integral", 5, "Segundo" ),
+(0, 7, "Programacion Orientada a Objetos", 5, "Segundo" ),
+(0, 7, "Contabilidad Financiera", 4, "Segundo" ),
+(0, 7, "Quimica", 4, "Segundo" ),
+(0, 7, "Algebra Lineal", 5, "Segundo" ),
+(0, 7, "Probabilidad y Estadistica", 5, "Segundo" );
 
 /*tercero semestre*/
-insert into materias values(0, 7, 'Calculo Vectorial', 5, 'Tercero' ),
-(0, 7, 'Estructura de Datos', 5, 'Tercero' ),
-(0, 7, 'Cultura Empresarial', 4, 'Tercero' ),
-(0, 7, 'Investigacion de Operaciones', 4, 'Tercero' ),
-(0, 7, 'Desarrollo Sustentable', 5, 'Tercero' ),
-(0, 7, 'Fisica General', 5, 'Tercero' );
+insert into materias values(0, 7, "Calculo Vectorial", 5, "Tercero" ),
+(0, 7, "Estructura de Datos", 5, "Tercero" ),
+(0, 7, "Cultura Empresarial", 4, "Tercero" ),
+(0, 7, "Investigacion de Operaciones", 4, "Tercero" ),
+(0, 7, "Desarrollo Sustentable", 5, "Tercero" ),
+(0, 7, "Fisica General", 5, "Tercero" );
 
 /*cuarto semestre*/
-insert into materias values(0, 7, 'Ecuaciones Diferenciales', 5, 'Cuarto' ),
-(0, 7, 'Metodos Numericos', 5, 'Cuarto' ),
-(0, 7, 'Topicos Avanzados de Porgramacion', 5, 'Cuarto' ),
-(0, 7, 'Findamentos de Base de Datos', 5, 'Cuarto' ),
-(0, 7, 'Simulacion', 5, 'Cuarto' ),
-(0, 7, 'Principios Electricos y Aplicaciones Digititales', 5, 'Cuarto' );
+insert into materias values(0, 7, "Ecuaciones Diferenciales", 5, "Cuarto" ),
+(0, 7, "Metodos Numericos", 5, "Cuarto" ),
+(0, 7, "Topicos Avanzados de Porgramacion", 5, "Cuarto" ),
+(0, 7, "Findamentos de Base de Datos", 5, "Cuarto" ),
+(0, 7, "Simulacion", 5, "Cuarto" ),
+(0, 7, "Principios Electricos y Aplicaciones Digititales", 5, "Cuarto" );
 
 
 /*quinto semestre*/
-insert into materias values(0, 7, 'Graficacion', 4, 'Quinto' ),
-(0, 7, 'Fundamentos de Telecomunicaciones', 4, 'Quinto' ),
-(0, 7, 'Taller de Sistemas Operativos', 4, 'Quinto' ),
-(0, 7, 'Taller de Base de Datos', 4, 'Quinto' ),
-(0, 7, 'Fundamentos de Ingenieria en Software', 4, 'Quinto' ),
-(0, 7, 'Arquitectura de Computadoras', 5, 'Quinto' );
+insert into materias values(0, 7, "Graficacion", 4, "Quinto" ),
+(0, 7, "Fundamentos de Telecomunicaciones", 4, "Quinto" ),
+(0, 7, "Taller de Sistemas Operativos", 4, "Quinto" ),
+(0, 7, "Taller de Base de Datos", 4, "Quinto" ),
+(0, 7, "Fundamentos de Ingenieria en Software", 4, "Quinto" ),
+(0, 7, "Arquitectura de Computadoras", 5, "Quinto" );
 
 /*sexto semestre*/
-insert into materias values(0, 7, 'Lenguajes y Automatas I', 5, 'Sexto' ),
-(0, 7, 'Redes de Computadoras', 5, 'Sexto' ),
-(0, 7, 'Taller de Sistema Operativo', 4, 'Sexto' ),
-(0, 7, 'Administracion de Base de Datos', 5, 'Sexto' ),
-(0, 7, 'Ingenieria de Software', 5, 'Sexto' ),
-(0, 7, 'Lenguaje de Interfaz', 4, 'Sexto' );
+insert into materias values(0, 7, "Lenguajes y Automatas I", 5, "Sexto" ),
+(0, 7, "Redes de Computadoras", 5, "Sexto" ),
+(0, 7, "Taller de Sistema Operativo", 4, "Sexto" ),
+(0, 7, "Administracion de Base de Datos", 5, "Sexto" ),
+(0, 7, "Ingenieria de Software", 5, "Sexto" ),
+(0, 7, "Lenguaje de Interfaz", 4, "Sexto" );
 
 /*septimo semestre*/
-insert into materias values(0, 7, 'Lenguaje y Automatas II', 5, 'Septimo' ),
-(0, 7, 'Conmutacion y Enrutamiento en Redes de Datos', 5, 'Septimo' ),
-(0, 7, 'Taller de Investigacion I', 4, 'Septimo' ),
-(0, 7, 'Sistemas Programables', 4, 'Septimo' ),
-(0, 7, 'Gestion de Proyecto de Software', 6, 'Septimo' ),
-(0, 7, 'Base de Datos Distribuidos', 5, 'Septimo' ),
-(0, 7, 'Seguridad Informatica', 5, 'Septimo' );
+insert into materias values(0, 7, "Lenguaje y Automatas II", 5, "Septimo" ),
+(0, 7, "Conmutacion y Enrutamiento en Redes de Datos", 5, "Septimo" ),
+(0, 7, "Taller de Investigacion I", 4, "Septimo" ),
+(0, 7, "Sistemas Programables", 4, "Septimo" ),
+(0, 7, "Gestion de Proyecto de Software", 6, "Septimo" ),
+(0, 7, "Base de Datos Distribuidos", 5, "Septimo" ),
+(0, 7, "Seguridad Informatica", 5, "Septimo" );
 
 /*octavo semestre*/
-insert into materias values(0, 7, 'Programacion Logica y Funcional', 4, 'Octavo' ),
-(0, 7, 'Administracion de Redes', 4, 'Octavo' ),
-(0, 7, 'Taller de Investigacion II', 4, 'Octavo' ),
-(0, 7, 'Programacion WEB', 5, 'Octavo' ),
-(0, 7, 'Redes Inalambricas', 4, 'Octavo' ),
-(0, 7, 'Administracion, Configuracion y Mantenimiento de Redes', 6, 'Octavo' ),
-(0, 7, 'Sistemas Distribuidos', 5, 'Octavo' );
+insert into materias values(0, 7, "Programacion Logica y Funcional", 4, "Octavo" ),
+(0, 7, "Administracion de Redes", 4, "Octavo" ),
+(0, 7, "Taller de Investigacion II", 4, "Octavo" ),
+(0, 7, "Programacion WEB", 5, "Octavo" ),
+(0, 7, "Redes Inalambricas", 4, "Octavo" ),
+(0, 7, "Administracion, Configuracion y Mantenimiento de Redes", 6, "Octavo" ),
+(0, 7, "Sistemas Distribuidos", 5, "Octavo" );
 
 /*noveno semestre*/
-insert into materias values(0, 7, 'Inteligencia Artificial', 4, 'Noveno' ),
-(0, 7, 'RESIDENCIA PROFESIONAL', 10, 'Noveno' );
+insert into materias values(0, 7, "Inteligencia Artificial", 4, "Noveno" ),
+(0, 7, "RESIDENCIA PROFESIONAL", 10, "Noveno" );
 
 /*Insercion de materias, industrial*/
 /*Primero semestre*/
@@ -576,269 +591,269 @@ insert into materias values(0,8,"Formulacion y Evaluacion de Proyectos",4,"Octav
 insert into materias values(0,8,"Residencia Profesional",10,"Noveno");
 /*Insercion de materias, Ing. en Mecatronica*/
 /*primer semestre*/
-insert into materias values(0, 9, 'Quimica', 4, 'Primero' ),
-(0, 9, 'Calculo Diferencial', 5, 'Primero' ),
-(0, 9, 'Taller de Etica', 4, 'Primero' ),
-(0, 9, 'Dibujo Asistido por Computadora', 4, 'Primero' ),
-(0, 9, 'Metrologia y Normalizacion', 4, 'Primero' ),
-(0, 9, 'Fundamentos de Investigacion', 4, 'Primero' );
+insert into materias values(0, 9, "Quimica", 4, "Primero" ),
+(0, 9, "Calculo Diferencial", 5, "Primero" ),
+(0, 9, "Taller de Etica", 4, "Primero" ),
+(0, 9, "Dibujo Asistido por Computadora", 4, "Primero" ),
+(0, 9, "Metrologia y Normalizacion", 4, "Primero" ),
+(0, 9, "Fundamentos de Investigacion", 4, "Primero" );
 
 /*segundo semestre*/
-insert into materias values(0, 9, 'Calculo Integral', 5, 'Segundo' ),
-(0, 9, 'Algebra Lineal', 5, 'Segundo' ),
-(0, 9, 'Ciencia e Ingenieria de Materiales', 5, 'Segundo' ),
-(0, 9, 'Programacion Basica', 5, 'Segundo' ),
-(0, 9, 'Estadistica y Control de Calidad', 4, 'Segundo' ),
-(0, 9, 'Administracion y Contabilidad', 4, 'Segundo' );
+insert into materias values(0, 9, "Calculo Integral", 5, "Segundo" ),
+(0, 9, "Algebra Lineal", 5, "Segundo" ),
+(0, 9, "Ciencia e Ingenieria de Materiales", 5, "Segundo" ),
+(0, 9, "Programacion Basica", 5, "Segundo" ),
+(0, 9, "Estadistica y Control de Calidad", 4, "Segundo" ),
+(0, 9, "Administracion y Contabilidad", 4, "Segundo" );
 
 /*tercero semestre*/
-insert into materias values(0, 9, 'Calculo Vectorial', 5, 'Tercero' ),
-(0, 9, 'Procesos de Fabricacion', 4, 'Tercero' ),
-(0, 9, 'Electromagnetismo', 5, 'Tercero' ),
-(0, 9, 'Estatica', 4, 'Tercero' ),
-(0, 9, 'Metodos Numericos', 4, 'Tercero' ),
-(0, 9, 'Desarrollo Sustentable', 5, 'Tercero' );
+insert into materias values(0, 9, "Calculo Vectorial", 5, "Tercero" ),
+(0, 9, "Procesos de Fabricacion", 4, "Tercero" ),
+(0, 9, "Electromagnetismo", 5, "Tercero" ),
+(0, 9, "Estatica", 4, "Tercero" ),
+(0, 9, "Metodos Numericos", 4, "Tercero" ),
+(0, 9, "Desarrollo Sustentable", 5, "Tercero" );
 
 /*cuarto semestre*/
-insert into materias values(0, 9, 'Ecuaciones Diferenciales', 5, 'Cuarto' ),
-(0, 9, 'Fundamentos de Termodinamica', 4, 'Cuarto' ),
-(0, 9, 'Mecanica de Materiales', 6, 'Cuarto' ),
-(0, 9, 'Dinamica', 4, 'Cuarto' ),
-(0, 9, 'Analisis de Circuito Electricos', 6, 'Cuarto' );
+insert into materias values(0, 9, "Ecuaciones Diferenciales", 5, "Cuarto" ),
+(0, 9, "Fundamentos de Termodinamica", 4, "Cuarto" ),
+(0, 9, "Mecanica de Materiales", 6, "Cuarto" ),
+(0, 9, "Dinamica", 4, "Cuarto" ),
+(0, 9, "Analisis de Circuito Electricos", 6, "Cuarto" );
 
 /*quinto semestre*/
-insert into materias values(0, 9, 'Maquinas Electricas', 5, 'Quinto' ),
-(0, 9, 'Electronica Analogica', 6, 'Quinto' ),
-(0, 9, 'Mecanismos', 5, 'Quinto' ),
-(0, 9, 'Analisis de Fluidos', 4, 'Quinto' ),
-(0, 9, 'Taller de Investigacio I', 4, 'Quinto' );
+insert into materias values(0, 9, "Maquinas Electricas", 5, "Quinto" ),
+(0, 9, "Electronica Analogica", 6, "Quinto" ),
+(0, 9, "Mecanismos", 5, "Quinto" ),
+(0, 9, "Analisis de Fluidos", 4, "Quinto" ),
+(0, 9, "Taller de Investigacio I", 4, "Quinto" );
 
 /*sexto semestre*/
-insert into materias values(0, 9, 'Electronica de Potencia Aplicada', 6, 'Sexto' ),
-(0, 9, 'Instrumentacion', 5, 'Sexto' ),
-(0, 9, 'Diseños de Elementos Mecanicos', 5, 'Sexto' ),
-(0, 9, 'Electronica Digital', 5, 'Sexto' ),
-(0, 9, 'Vibraciones Mecanicas', 5, 'Sexto' ),
-(0, 9, 'Taller de Investigacion II', 4, 'Sexto' ),
-(0, 9, 'Servicio Social', 10, 'Sexto' );
+insert into materias values(0, 9, "Electronica de Potencia Aplicada", 6, "Sexto" ),
+(0, 9, "Instrumentacion", 5, "Sexto" ),
+(0, 9, "Diseños de Elementos Mecanicos", 5, "Sexto" ),
+(0, 9, "Electronica Digital", 5, "Sexto" ),
+(0, 9, "Vibraciones Mecanicas", 5, "Sexto" ),
+(0, 9, "Taller de Investigacion II", 4, "Sexto" ),
+(0, 9, "Servicio Social", 10, "Sexto" );
 
 /*septimo semestre*/
-insert into materias values(0, 9, 'Dinamica de Sistemas', 5, 'Septimo' ),
-(0, 9, 'Manufactura Avanzada', 5, 'Septimo' ),
-(0, 9, 'Circuitos Hidraulicos y Neumaticos', 6, 'Septimo' ),
-(0, 9, 'Mantenimiento', 5, 'Septimo' ),
-(0, 9, 'Microcontroladores', 5, 'Septimo' ),
-(0, 9, 'Programacion Avanzada', 6, 'Septimo' ),
-(0, 9, 'Factores de Riesgo Industriales', 4, 'Septimo' );
+insert into materias values(0, 9, "Dinamica de Sistemas", 5, "Septimo" ),
+(0, 9, "Manufactura Avanzada", 5, "Septimo" ),
+(0, 9, "Circuitos Hidraulicos y Neumaticos", 6, "Septimo" ),
+(0, 9, "Mantenimiento", 5, "Septimo" ),
+(0, 9, "Microcontroladores", 5, "Septimo" ),
+(0, 9, "Programacion Avanzada", 6, "Septimo" ),
+(0, 9, "Factores de Riesgo Industriales", 4, "Septimo" );
 
 /*octavo semestre*/
-insert into materias values(0, 9, 'Control', 6, 'Octavo' ),
-(0, 9, 'Formulacion y Evaluacion de Proyectos', 3, 'Octavo' ),
-(0, 9, 'Diseño Asistido por Computadora', 6, 'Octavo' ),
-(0, 9, 'Diseño de Control de Motores Electricos', 5, 'Octavo' ),
-(0, 9, 'Interfaces y Redes Industriales', 5, 'Octavo' ),
-(0, 9, 'Medicion y Mejoramineto de Procesos', 5, 'Octavo' );
+insert into materias values(0, 9, "Control", 6, "Octavo" ),
+(0, 9, "Formulacion y Evaluacion de Proyectos", 3, "Octavo" ),
+(0, 9, "Diseño Asistido por Computadora", 6, "Octavo" ),
+(0, 9, "Diseño de Control de Motores Electricos", 5, "Octavo" ),
+(0, 9, "Interfaces y Redes Industriales", 5, "Octavo" ),
+(0, 9, "Medicion y Mejoramineto de Procesos", 5, "Octavo" );
 
 /*noveno semestre*/
-insert into materias values(0, 9, 'Robotica', 5, 'Noveno' ),
-(0, 9, 'RESIDENCIA PROFESIONAL', 10, 'Noveno' );
+insert into materias values(0, 9, "Robotica", 5, "Noveno" ),
+(0, 9, "RESIDENCIA PROFESIONAL", 10, "Noveno" );
 
 /*Insercion de materias, Ing. Quimica*/
 /*primer semestre*/
-insert into materias values(0, 10, 'Taller de Etica', 4, 'Primero' ),
-(0, 10, 'Fundamentos de Investigacion', 4, 'Primero' ),
-(0, 10, 'Calculo Diferencial', 4, 'Primero' ),
-(0, 10, 'Quimica Inorganica', 5, 'Primero' ),
-(0, 10, 'Programacion', 4, 'Primero' ),
-(0, 10, 'Dibujo Asistido por computadora', 3, 'Primero' );
+insert into materias values(0, 10, "Taller de Etica", 4, "Primero" ),
+(0, 10, "Fundamentos de Investigacion", 4, "Primero" ),
+(0, 10, "Calculo Diferencial", 4, "Primero" ),
+(0, 10, "Quimica Inorganica", 5, "Primero" ),
+(0, 10, "Programacion", 4, "Primero" ),
+(0, 10, "Dibujo Asistido por computadora", 3, "Primero" );
 
 /*segundo semestre*/
-insert into materias values(0, 10, 'Algebra Lineal', 5, 'Segundo' ),
-(0, 10, 'Mecanica Clasica', 5, 'Segundo' ),
-(0, 10, 'Calculo Integral', 5, 'Segundo' ),
-(0, 10, 'Quimica Organica I', 5, 'Segundo' ),
-(0, 10, 'Termodinamica', 5, 'Segundo' ),
-(0, 10, 'Quimica Analitica', 6, 'Segundo' );
+insert into materias values(0, 10, "Algebra Lineal", 5, "Segundo" ),
+(0, 10, "Mecanica Clasica", 5, "Segundo" ),
+(0, 10, "Calculo Integral", 5, "Segundo" ),
+(0, 10, "Quimica Organica I", 5, "Segundo" ),
+(0, 10, "Termodinamica", 5, "Segundo" ),
+(0, 10, "Quimica Analitica", 6, "Segundo" );
 
 /*tercero semestre*/
-insert into materias values(0, 10, 'Analisis de Datos Experimentales', 5, 'Tercero' ),
-(0, 10, 'Electricidad, Magnetismo y Optica', 5, 'Tercero' ),
-(0, 10, 'Calculo Vectorial', 5, 'Tercero' ),
-(0, 10, 'Quimica Organica II', 5, 'Tercero' ),
-(0, 10, 'Balance de Materia y Energia', 5, 'Tercero' ),
-(0, 10, 'Gestion de Calidad', 5, 'Tercero' );
+insert into materias values(0, 10, "Analisis de Datos Experimentales", 5, "Tercero" ),
+(0, 10, "Electricidad, Magnetismo y Optica", 5, "Tercero" ),
+(0, 10, "Calculo Vectorial", 5, "Tercero" ),
+(0, 10, "Quimica Organica II", 5, "Tercero" ),
+(0, 10, "Balance de Materia y Energia", 5, "Tercero" ),
+(0, 10, "Gestion de Calidad", 5, "Tercero" );
 
 /*cuarto semestre*/
-insert into materias values(0, 10, 'Metodos Numericos', 4, 'Cuarto' ),
-(0, 10, 'Ecuaciones Diferenciales', 5, 'Cuarto' ),
-(0, 10, 'Mecanismos de Transferencia', 5, 'Cuarto' ),
-(0, 10, 'Ingenieria Ambiental', 5, 'Cuarto' ),
-(0, 10, 'Fisicoquimica I', 5, 'Cuarto' ),
-(0, 10, 'Analisis Instrumental', 5, 'Cuarto' );
+insert into materias values(0, 10, "Metodos Numericos", 4, "Cuarto" ),
+(0, 10, "Ecuaciones Diferenciales", 5, "Cuarto" ),
+(0, 10, "Mecanismos de Transferencia", 5, "Cuarto" ),
+(0, 10, "Ingenieria Ambiental", 5, "Cuarto" ),
+(0, 10, "Fisicoquimica I", 5, "Cuarto" ),
+(0, 10, "Analisis Instrumental", 5, "Cuarto" );
 
 /*quinto semestre*/
-insert into materias values(0, 10, 'Desarrollo Sustentable', 5, 'Quinto' ),
-(0, 10, 'Ingenieria de Costos', 4, 'Quinto' ),
-(0, 10, 'Balance de Momento, Calor y Masa', 6, 'Quinto' ),
-(0, 10, 'Proceso de Separacion I', 5, 'Quinto' ),
-(0, 10, 'Fisicoquimica II', 5, 'Quinto' );
+insert into materias values(0, 10, "Desarrollo Sustentable", 5, "Quinto" ),
+(0, 10, "Ingenieria de Costos", 4, "Quinto" ),
+(0, 10, "Balance de Momento, Calor y Masa", 6, "Quinto" ),
+(0, 10, "Proceso de Separacion I", 5, "Quinto" ),
+(0, 10, "Fisicoquimica II", 5, "Quinto" );
 
 /*sexto semestre*/
-insert into materias values(0, 10, 'Taller de Investigacion I', 4, 'Sexto' ),
-(0, 10, 'Taller de Investigacion I', 5, 'Sexto' ),
-(0, 10, 'Proceso de Separacion II', 5, 'Sexto' ),
-(0, 10, 'Laboratorio Integral I', 6, 'Sexto' ),
-(0, 10, 'Reactores Quimicos', 5, 'Sexto' ),
-(0, 10, 'Salud y Seguridad en el Trabajo', 5, 'Sexto' );
+insert into materias values(0, 10, "Taller de Investigacion I", 4, "Sexto" ),
+(0, 10, "Taller de Investigacion I", 5, "Sexto" ),
+(0, 10, "Proceso de Separacion II", 5, "Sexto" ),
+(0, 10, "Laboratorio Integral I", 6, "Sexto" ),
+(0, 10, "Reactores Quimicos", 5, "Sexto" ),
+(0, 10, "Salud y Seguridad en el Trabajo", 5, "Sexto" );
 
 /*septimo semestre*/
-insert into materias values(0, 10, 'Taller de Administracion Gerencial', 3, 'Septimo' ),
-(0, 10, 'Taller de Investigacion II', 4, 'Septimo' ),
-(0, 10, 'Procesos de Separacion III', 5, 'Septimo' ),
-(0, 10, 'Ingenieria de Proyectos', 6, 'Septimo' ),
-(0, 10, 'Laboratorio Integral II', 6, 'Septimo' ),
-(0, 10, 'Tratamiento de Aguas Residuales', 5, 'Septimo' ),
-(0, 10, 'Control de Contaminantes Atmosfericos', 5, 'Septimo' );
+insert into materias values(0, 10, "Taller de Administracion Gerencial", 3, "Septimo" ),
+(0, 10, "Taller de Investigacion II", 4, "Septimo" ),
+(0, 10, "Procesos de Separacion III", 5, "Septimo" ),
+(0, 10, "Ingenieria de Proyectos", 6, "Septimo" ),
+(0, 10, "Laboratorio Integral II", 6, "Septimo" ),
+(0, 10, "Tratamiento de Aguas Residuales", 5, "Septimo" ),
+(0, 10, "Control de Contaminantes Atmosfericos", 5, "Septimo" );
 
 /*octavo semestre*/
-insert into materias values(0, 10, 'Laboratorio Integral III', 6, 'Octavo' ),
-(0, 10, 'Instrumentacion y Control', 5, 'Octavo' ),
-(0, 10, 'Sintesis y Optimizacion de Procesos', 5, 'Octavo' ),
-(0, 10, 'Simulacion de Procesos', 5, 'Octavo' ),
-(0, 10, 'Gestion y Normatividad Ambiental', 5, 'Octavo' ),
-(0, 10, 'Disposicion de Residuos Solidos y Peligrosos', 5, 'Octavo' ),
-(0, 10, 'Fuentes de Energia Renovable', 5, 'Octavo' );
+insert into materias values(0, 10, "Laboratorio Integral III", 6, "Octavo" ),
+(0, 10, "Instrumentacion y Control", 5, "Octavo" ),
+(0, 10, "Sintesis y Optimizacion de Procesos", 5, "Octavo" ),
+(0, 10, "Simulacion de Procesos", 5, "Octavo" ),
+(0, 10, "Gestion y Normatividad Ambiental", 5, "Octavo" ),
+(0, 10, "Disposicion de Residuos Solidos y Peligrosos", 5, "Octavo" ),
+(0, 10, "Fuentes de Energia Renovable", 5, "Octavo" );
 
 /*noveno semestre*/
-insert into materias values(0, 10, 'RESIDENCIA PROFESIONAL', 10, 'Noveno' );
+insert into materias values(0, 10, "RESIDENCIA PROFESIONAL", 10, "Noveno" );
 
 /*Insercion de materias, Lic. en Turismo*/
 /*primer semestre*/
-insert into materias values(0, 11, 'Fundamentos del Turismo', 4, 'Primero' ),
-(0, 11, 'Administracion de Empresas Turistica', 4, 'Primero' ),
-(0, 11, 'Flora', 5, 'Primero' ),
-(0, 11, 'Matematicas Aplicadas al Turismo', 5, 'Primero' ),
-(0, 11, 'Fundamentos de Investigacion', 4, 'Primero' ),
-(0, 11, 'Taller de Etica', 4, 'Primero' );
+insert into materias values(0, 11, "Fundamentos del Turismo", 4, "Primero" ),
+(0, 11, "Administracion de Empresas Turistica", 4, "Primero" ),
+(0, 11, "Flora", 5, "Primero" ),
+(0, 11, "Matematicas Aplicadas al Turismo", 5, "Primero" ),
+(0, 11, "Fundamentos de Investigacion", 4, "Primero" ),
+(0, 11, "Taller de Etica", 4, "Primero" );
 
 /*segundo semestre*/
-insert into materias values(0, 11, 'Historia del Arte Mexicano', 5, 'Segundo' ),
-(0, 11, 'Contabilidad Financiera', 5, 'Segundo' ),
-(0, 11, 'Cartografia', 5, 'Segundo' ),
-(0, 11, 'Fundamentos de Derecho', 4, 'Segundo' ),
-(0, 11, 'Fauna', 4, 'Segundo' ),
-(0, 11, 'Seguridad y Supervivencia', 4, 'Segundo' );
+insert into materias values(0, 11, "Historia del Arte Mexicano", 5, "Segundo" ),
+(0, 11, "Contabilidad Financiera", 5, "Segundo" ),
+(0, 11, "Cartografia", 5, "Segundo" ),
+(0, 11, "Fundamentos de Derecho", 4, "Segundo" ),
+(0, 11, "Fauna", 4, "Segundo" ),
+(0, 11, "Seguridad y Supervivencia", 4, "Segundo" );
 
 /*tercero semestre*/
-insert into materias values(0, 11, 'Socioantropologia Turistica', 5, 'Tercero' ),
-(0, 11, 'Estadistica Aplicada del Turismo', 4, 'Tercero' ),
-(0, 11, 'Ecologia', 5, 'Tercero' ),
-(0, 11, 'Meteorologia y Climatologia', 4, 'Tercero' ),
-(0, 11, 'Herramientas Informaticas Administrativas', 5, 'Tercero' ),
-(0, 11, 'Turismo de Aventura I', 6, 'Tercero' );
+insert into materias values(0, 11, "Socioantropologia Turistica", 5, "Tercero" ),
+(0, 11, "Estadistica Aplicada del Turismo", 4, "Tercero" ),
+(0, 11, "Ecologia", 5, "Tercero" ),
+(0, 11, "Meteorologia y Climatologia", 4, "Tercero" ),
+(0, 11, "Herramientas Informaticas Administrativas", 5, "Tercero" ),
+(0, 11, "Turismo de Aventura I", 6, "Tercero" );
 
 /*cuarto semestre*/
-insert into materias values(0, 11, 'Patrimonio Turistico Cultural', 4, 'Cuarto' ),
-(0, 11, 'Fundamentos de Mercadotecnia Turistica', 5, 'Cuarto' ),
-(0, 11, 'Geomorfologia', 5, 'Cuarto' ),
-(0, 11, 'Turismo de Aventura II', 5, 'Cuarto' ),
-(0, 11, 'Comunicacion y Relaciones Humanas', 5, 'Cuarto' ),
-(0, 11, 'Manejo de Recursos Naturales e Impacto Ambiental', 5, 'Cuarto' );
+insert into materias values(0, 11, "Patrimonio Turistico Cultural", 4, "Cuarto" ),
+(0, 11, "Fundamentos de Mercadotecnia Turistica", 5, "Cuarto" ),
+(0, 11, "Geomorfologia", 5, "Cuarto" ),
+(0, 11, "Turismo de Aventura II", 5, "Cuarto" ),
+(0, 11, "Comunicacion y Relaciones Humanas", 5, "Cuarto" ),
+(0, 11, "Manejo de Recursos Naturales e Impacto Ambiental", 5, "Cuarto" );
 
 /*quinto semestre*/
-insert into materias values(0, 11, 'Desarrollo Sustentable', 5, 'Quinto' ),
-(0, 11, 'Geografia Turistica de Mexico', 5, 'Quinto' ),
-(0, 11, 'Ecoturismo I', 6, 'Quinto' ),
-(0, 11, 'Economia', 5, 'Quinto' ),
-(0, 11, 'Turismo Rural I', 4, 'Quinto' ),
-(0, 11, 'Diagnostico y Evaluacion del Sistema Turistico', 4, 'Quinto' );
+insert into materias values(0, 11, "Desarrollo Sustentable", 5, "Quinto" ),
+(0, 11, "Geografia Turistica de Mexico", 5, "Quinto" ),
+(0, 11, "Ecoturismo I", 6, "Quinto" ),
+(0, 11, "Economia", 5, "Quinto" ),
+(0, 11, "Turismo Rural I", 4, "Quinto" ),
+(0, 11, "Diagnostico y Evaluacion del Sistema Turistico", 4, "Quinto" );
 
 /*sexto semestre*/
-insert into materias values(0, 11, 'Turismo Rural II', 6, 'Sexto' ),
-(0, 11, 'Taller de Investigacion I', 4, 'Sexto' ),
-(0, 11, 'Ecoturismo II', 6, 'Sexto' ),
-(0, 11, 'Cosmovision de los Pueblos Originarios', 4, 'Sexto' ),
-(0, 11, 'Marco Legal del Turismo y Proteccion del Medio Ambiente', 5, 'Sexto' ),
-(0, 11, 'Gestion del Desarrollo Turistico', 6, 'Sexto' );
+insert into materias values(0, 11, "Turismo Rural II", 6, "Sexto" ),
+(0, 11, "Taller de Investigacion I", 4, "Sexto" ),
+(0, 11, "Ecoturismo II", 6, "Sexto" ),
+(0, 11, "Cosmovision de los Pueblos Originarios", 4, "Sexto" ),
+(0, 11, "Marco Legal del Turismo y Proteccion del Medio Ambiente", 5, "Sexto" ),
+(0, 11, "Gestion del Desarrollo Turistico", 6, "Sexto" );
 
 /*septimo semestre*/
-insert into materias values(0, 11, 'Taller de Investigacion II', 4, 'Septimo' ),
-(0, 11, 'Elaboracion y Evaluacion de Proyectos Turisticos', 6, 'Septimo' ),
-(0, 11, 'Mercadotecnia de Servicios Turistico', 5, 'Septimo' );
+insert into materias values(0, 11, "Taller de Investigacion II", 4, "Septimo" ),
+(0, 11, "Elaboracion y Evaluacion de Proyectos Turisticos", 6, "Septimo" ),
+(0, 11, "Mercadotecnia de Servicios Turistico", 5, "Septimo" );
 
 /*octavo semestre*/
-insert into materias values(0, 11, 'Calidad del Servicio al Cliente', 5, 'Octavo' ),
-(0, 11, 'Operacion de Servicios Tuistico', 5, 'Octavo' );
+insert into materias values(0, 11, "Calidad del Servicio al Cliente", 5, "Octavo" ),
+(0, 11, "Operacion de Servicios Tuistico", 5, "Octavo" );
 
 /*noveno semestre*/
-insert into materias values(0, 11, 'RESIDENCIA PROFESIONAL', 10, 'Noveno' ),
-(0, 11, 'Especialidad', 35, 'Noveno' );
+insert into materias values(0, 11, "RESIDENCIA PROFESIONAL", 10, "Noveno" ),
+(0, 11, "Especialidad", 35, "Noveno" );
 
 12.GRUPO: IJ-0101:Ing. en Logística
 /*Insercion de materias, Ing. en Logistica*/
 /*primer semestre*/
-insert into materias values(0, 12, 'Introduccion a la Ingenieria en Logistica', 4, 'Primero' ),
-(0, 12, 'Calculo Diferencial', 5, 'Primero' ),
-(0, 12, 'Quimica', 4, 'Primero' ),
-(0, 12, 'Fundamentos de Administracion', 4, 'Primero' ),
-(0, 12, 'Dibujo Asistido por Computadora', 4, 'Primero' ),
-(0, 12, 'Economia', 4, 'Primero' );
+insert into materias values(0, 12, "Introduccion a la Ingenieria en Logistica", 4, "Primero" ),
+(0, 12, "Calculo Diferencial", 5, "Primero" ),
+(0, 12, "Quimica", 4, "Primero" ),
+(0, 12, "Fundamentos de Administracion", 4, "Primero" ),
+(0, 12, "Dibujo Asistido por Computadora", 4, "Primero" ),
+(0, 12, "Economia", 4, "Primero" );
 
 /*segundo semestre*/
-insert into materias values(0, 12, 'Taller de Etica', 4, 'Segundo' ),
-(0, 12, 'Calculo Integral', 5, 'Segundo' ),
-(0, 12, 'Probabilidad y Estadistica', 4, 'Segundo' ),
-(0, 12, 'Desarrollo Humano y Organizacional', 4, 'Segundo' ),
-(0, 12, 'Fundamentos de Investigacion', 4, 'Segundo' ),
-(0, 12, 'Contabilidad y Costos', 5, 'Segundo' );
+insert into materias values(0, 12, "Taller de Etica", 4, "Segundo" ),
+(0, 12, "Calculo Integral", 5, "Segundo" ),
+(0, 12, "Probabilidad y Estadistica", 4, "Segundo" ),
+(0, 12, "Desarrollo Humano y Organizacional", 4, "Segundo" ),
+(0, 12, "Fundamentos de Investigacion", 4, "Segundo" ),
+(0, 12, "Contabilidad y Costos", 5, "Segundo" );
 
 /*tercer semestre*/
-insert into materias values(0, 12, 'Cadenas de Suministros', 4, 'Tercero' ),
-(0, 12, 'Algebra Lineal', 5, 'Tercero' ),
-(0, 12, 'Estadistica Inferencial I', 5, 'Tercero' ),
-(0, 12, 'Fundamentos de Derecho', 4, 'Tercero' ),
-(0, 12, 'Mecanica Clasica', 5, 'Tercero' ),
-(0, 12, 'Finanzas', 5, 'Tercero' );
+insert into materias values(0, 12, "Cadenas de Suministros", 4, "Tercero" ),
+(0, 12, "Algebra Lineal", 5, "Tercero" ),
+(0, 12, "Estadistica Inferencial I", 5, "Tercero" ),
+(0, 12, "Fundamentos de Derecho", 4, "Tercero" ),
+(0, 12, "Mecanica Clasica", 5, "Tercero" ),
+(0, 12, "Finanzas", 5, "Tercero" );
 
 /*cuarto semestre*/
-insert into materias values(0, 12, 'Compras', 4, 'Cuarto' ),
-(0, 12, 'Tipologia de Producto', 4, 'Cuarto' ),
-(0, 12, 'Estadistica Inferencial II', 5, 'Cuarto' ),
-(0, 12, 'Entorno Economico', 4, 'Cuarto' ),
-(0, 12, 'Topicos de Ingenieria Mecanica', 5, 'Cuarto' ),
-(0, 12, 'Base de Datos', 4, 'Cuarto' );
+insert into materias values(0, 12, "Compras", 4, "Cuarto" ),
+(0, 12, "Tipologia de Producto", 4, "Cuarto" ),
+(0, 12, "Estadistica Inferencial II", 5, "Cuarto" ),
+(0, 12, "Entorno Economico", 4, "Cuarto" ),
+(0, 12, "Topicos de Ingenieria Mecanica", 5, "Cuarto" ),
+(0, 12, "Base de Datos", 4, "Cuarto" );
 
 /*quinto semestre*/
-insert into materias values(0, 12, 'Almacenes', 5, 'Quinto' ),
-(0, 12, 'Inventarios', 4, 'Quinto' ),
-(0, 12, 'Investigacion de Operaciones', 4, 'Quinto' ),
-(0, 12, 'Higiene y Seguridad', 6, 'Quinto' ),
-(0, 12, 'Procesos de Fabricacion y Manejo de Materiales', 4, 'Quinto' ),
-(0, 12, 'Mercadotecnia', 5, 'Quinto' );
+insert into materias values(0, 12, "Almacenes", 5, "Quinto" ),
+(0, 12, "Inventarios", 4, "Quinto" ),
+(0, 12, "Investigacion de Operaciones", 4, "Quinto" ),
+(0, 12, "Higiene y Seguridad", 6, "Quinto" ),
+(0, 12, "Procesos de Fabricacion y Manejo de Materiales", 4, "Quinto" ),
+(0, 12, "Mercadotecnia", 5, "Quinto" );
 
 /*sexto semestre*/
-insert into materias values(0, 12, 'Trafico y Transporte', 5, 'Sexto' ),
-(0, 12, 'Cultura de Calidad', 4, 'Sexto' ),
-(0, 12, 'Investigacion de Operaciones II', 4, 'Sexto' ),
-(0, 12, 'Desarrollo Sustentable', 5, 'Sexto' ),
-(0, 12, 'Taller de Investigacion I', 4, 'Sexto' ),
-(0, 12, 'Empaquete, Envase y Embalaje', 4, 'Sexto' );
+insert into materias values(0, 12, "Trafico y Transporte", 5, "Sexto" ),
+(0, 12, "Cultura de Calidad", 4, "Sexto" ),
+(0, 12, "Investigacion de Operaciones II", 4, "Sexto" ),
+(0, 12, "Desarrollo Sustentable", 5, "Sexto" ),
+(0, 12, "Taller de Investigacion I", 4, "Sexto" ),
+(0, 12, "Empaquete, Envase y Embalaje", 4, "Sexto" );
 
 /*septimo semestre*/
-insert into materias values(0, 12, 'Servicio al Cliente', 4, 'Septimo' ),
-(0, 12, 'Programacion de Procesos Productivos', 4, 'Septimo' ),
-(0, 12, 'Modelo de Simulacion y Logistica', 4, 'Septimo' ),
-(0, 12, 'Legislacion Aduanera', 5, 'Septimo' ),
-(0, 12, 'Taller de Investigacion II', 4, 'Septimo' ),
-(0, 12, 'Ingenieria Economica', 4, 'Septimo' );
+insert into materias values(0, 12, "Servicio al Cliente", 4, "Septimo" ),
+(0, 12, "Programacion de Procesos Productivos", 4, "Septimo" ),
+(0, 12, "Modelo de Simulacion y Logistica", 4, "Septimo" ),
+(0, 12, "Legislacion Aduanera", 5, "Septimo" ),
+(0, 12, "Taller de Investigacion II", 4, "Septimo" ),
+(0, 12, "Ingenieria Economica", 4, "Septimo" );
 
 /*octavo semestre*/
-insert into materias values(0, 12, 'Innovacion', 5, 'Octavo' ),
-(0, 12, 'Comercio Internacional', 4, 'Octavo' ),
-(0, 12, 'Formulacion y Evaluacion de Proyectos', 5, 'Octavo' ),
-(0, 12, 'Geografia para el Transporte', 5, 'Octavo' );
+insert into materias values(0, 12, "Innovacion", 5, "Octavo" ),
+(0, 12, "Comercio Internacional", 4, "Octavo" ),
+(0, 12, "Formulacion y Evaluacion de Proyectos", 5, "Octavo" ),
+(0, 12, "Geografia para el Transporte", 5, "Octavo" );
 
 /*noveno semestre*/
-insert into materias values(0, 12, 'RESIDENCIA PROFESIONAL', 10, 'Noveno' ),
-(0, 12, 'ESPECIALIDAD', 28, 'Noveno' ),
-(0, 12, 'Gestion de Proyectos', 4, 'Noveno' );
+insert into materias values(0, 12, "RESIDENCIA PROFESIONAL", 10, "Noveno" ),
+(0, 12, "ESPECIALIDAD", 28, "Noveno" ),
+(0, 12, "Gestion de Proyectos", 4, "Noveno" );
